@@ -14,7 +14,7 @@
     .hero{display:grid;grid-template-columns:1.25fr .8fr;gap:5vw;align-items:center;padding-top:76px;padding-bottom:78px}.eyebrow{color:#806339;text-transform:uppercase;letter-spacing:.18em;font-size:.76rem;font-weight:700;margin:0 0 24px}.hero h1{font-size:clamp(2.55rem,5.6vw,5.4rem);letter-spacing:-.055em;line-height:1.04;margin:0 0 28px;max-width:850px}.hero .intro{font-size:clamp(1.05rem,1.9vw,1.27rem);max-width:640px;color:#39352e;margin:0 0 32px}.photo{margin:0;width:100%;max-width:360px;justify-self:end}.frame{position:relative;isolation:isolate}.frame:after{content:"";position:absolute;inset:12px -12px -12px 12px;border:1px solid var(--gold);z-index:-1}.hero .portrait{width:100%;height:auto;aspect-ratio:333/449;object-fit:cover;object-position:center 28%;display:block;filter:saturate(.82)}.caption{font-size:.78rem;color:var(--muted);margin-top:26px}
     .button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:12px 22px;background:var(--ink);color:#fff;text-decoration:none;border:1px solid var(--ink);font:700 .95rem Arial,Helvetica,sans-serif;cursor:pointer;transition:background .15s,color .15s}.button:hover{background:#453c2e}.button.light{background:var(--gold);border-color:var(--gold);color:var(--ink)}.button.light:hover{background:#d2ad73}.micro{font-size:.83rem;color:var(--muted);margin:12px 0 0}
     .contact{background:#24221e;color:var(--paper);padding:76px 0 80px}.contact .wrap{display:grid;grid-template-columns:1fr 1.08fr;gap:7vw}.contact .eyebrow{color:#d9b77b}.contact h2{font-size:clamp(2rem,3.4vw,3.3rem);line-height:1.12;letter-spacing:-.04em;margin:0 0 20px}.contact p{color:#dfd7c8}.rule{width:72px;height:2px;background:var(--gold);margin:28px 0}.offer{max-width:440px;font-size:.98rem}
-    form{display:grid;gap:16px}label{display:grid;gap:7px;font-size:.88rem;font-weight:700}input,textarea,select{font-weight:400!important;width:100%;border:1px solid #81796c;background:#f8f5ef;color:var(--ink);border-radius:0;padding:13px 14px;font-family:inherit;font-size:1rem;min-height:48px}textarea{min-height:108px;resize:vertical}select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='m1 1 5 5 5-5' fill='none' stroke='%231a1916' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:42px}.privacy{font-size:.78rem;line-height:1.55;color:#d4cbbc!important;margin:0}.privacy a{text-decoration:underline;text-underline-offset:3px}.foot{border-top:1px solid var(--line);padding:24px 0;font-size:.8rem;color:var(--muted)}.foot .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.foot a{text-decoration:underline;text-underline-offset:3px}
+    form{display:grid;gap:16px}label{display:grid;gap:7px;font-size:.88rem;font-weight:700}input,textarea,select{font-weight:400!important;width:100%;border:1px solid #81796c;background:#f8f5ef;color:var(--ink);border-radius:0;padding:13px 14px;font-family:inherit;font-size:1rem;min-height:48px}textarea{min-height:108px;resize:vertical}select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='m1 1 5 5 5-5' fill='none' stroke='%231a1916' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:42px}.hint{font-size:.8rem;color:#d4cbbc;margin:-8px 0 0}.err{font-size:.88rem;font-weight:700;color:#ffd38a;margin:-8px 0 0}.err:empty{display:none}.err button{font:inherit;color:inherit;background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer}input[aria-invalid=true]{border:2px solid #ffd38a}.privacy{font-size:.78rem;line-height:1.55;color:#d4cbbc!important;margin:0}.privacy a{text-decoration:underline;text-underline-offset:3px}.foot{border-top:1px solid var(--line);padding:24px 0;font-size:.8rem;color:var(--muted)}.foot .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.foot a{text-decoration:underline;text-underline-offset:3px}
     @media(max-width:760px){.wrap{padding:0 20px}.top .wrap{min-height:66px}.brand{font-size:.72rem;letter-spacing:.13em}.hero{grid-template-columns:1fr;padding-top:48px;padding-bottom:64px;gap:42px}.photo{justify-self:start}.hero .portrait{aspect-ratio:auto;height:390px}.contact{padding:60px 0}.contact .wrap{grid-template-columns:1fr;gap:28px}.photo{max-width:460px}.frame:after{inset:10px -10px -10px 10px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
   </style>
@@ -41,7 +41,9 @@
         <input type="hidden" name="_subject" value="Demande de formation IA · atelier Cité des Métiers">
         <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true" aria-label="Ne pas remplir">
         <label>Votre nom <input name="nom" autocomplete="name" required maxlength="100"></label>
-        <label>Votre adresse e-mail <input type="email" name="email" autocomplete="email" required maxlength="254"></label>
+        <label>Votre adresse e-mail <input type="email" name="email" id="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" required maxlength="254" pattern="[A-Za-z0-9._%+'\-]+@([A-Za-z0-9\-]+\.)+[A-Za-z]{2,}" aria-describedby="email-aide email-erreur"></label>
+        <p id="email-aide" class="hint">Une adresse valide, par exemple prenom.nom@exemple.fr : la réponse vous sera envoyée à cette adresse.</p>
+        <p id="email-erreur" class="err" aria-live="polite"></p>
         <label>Votre projet de formation <textarea name="projet" required maxlength="1200" placeholder="Ce que vous aimeriez apprendre ou mettre en place avec l’IA"></textarea></label>
         <label>Financement envisagé <select name="financement"><option value="">Je ne sais pas encore</option><option value="CPF">CPF</option><option value="OPCO">OPCO / entreprise</option><option value="Autre">Autre / à discuter</option></select></label>
         <p class="privacy">Ces informations servent uniquement à répondre à votre demande. Elles sont transmises à Alexandre Paviel par e-mail via le service FormSubmit, qui conserve les soumissions 30 jours. Vous pouvez demander l’accès, la rectification ou la suppression de vos données à <a href="mailto:unisonore@gmail.com">unisonore@gmail.com</a>. <a href="mentions.html#confidentialite">En savoir plus</a>.</p>
@@ -50,5 +52,35 @@
     </div></section>
   </main>
   <footer class="foot"><div class="wrap"><span>© 2026 Alexandre Paviel · Univers Sonore Réunion</span><a href="mentions.html">Mentions légales et confidentialité</a></div></footer>
+  <script>
+  (function(){
+    var f=document.querySelector('form'),e=document.getElementById('email'),out=document.getElementById('email-erreur');
+    var fmt=/^(?!\.)(?!.*\.\.)[A-Za-z0-9._%+'-]+(?<!\.)@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z]{2,}$/;
+    var typos={'gmial.com':'gmail.com','gmai.com':'gmail.com','gamil.com':'gmail.com','gmal.com':'gmail.com','gmaill.com':'gmail.com','gmail.co':'gmail.com','gmail.cm':'gmail.com','gmail.con':'gmail.com','gmail.fr':'gmail.com','gmail.om':'gmail.com','hotmial.com':'hotmail.com','hotmal.com':'hotmail.com','hotmail.con':'hotmail.com','hotmial.fr':'hotmail.fr','outlok.com':'outlook.com','outlook.con':'outlook.com','outlok.fr':'outlook.fr','yaho.fr':'yahoo.fr','yahooo.fr':'yahoo.fr','yahoo.con':'yahoo.com','orange.con':'orange.fr','orage.fr':'orange.fr','wanadoo.con':'wanadoo.fr','wanado.fr':'wanadoo.fr','icloud.con':'icloud.com','iclould.com':'icloud.com','laposte.con':'laposte.net','laposte.fr':'laposte.net','free.con':'free.fr','sfr.con':'sfr.fr'};
+    var jetables=['yopmail.com','yopmail.fr','yopmail.net','mailinator.com','guerrillamail.com','sharklasers.com','10minutemail.com','temp-mail.org','tempmail.com','trashmail.com','jetable.org','getnada.com','maildrop.cc','dispostable.com','throwawaymail.com','tempail.com','mailnesia.com'];
+    function check(){
+      var v=e.value.trim();e.value=v;out.textContent='';var msg='';
+      if(!v){msg='Indiquez votre adresse e-mail.';}
+      else if(!fmt.test(v)){msg='Cette adresse n’est pas valide. Vérifiez le @ et la fin de l’adresse (ex. : .fr, .com).';}
+      else{
+        var d=v.split('@')[1].toLowerCase(),tld=d.split('.').pop();
+        if(jetables.indexOf(d)>-1){msg='Les adresses jetables ne sont pas acceptées : indiquez une adresse que vous consultez.';}
+        else if(typos[d]||/^(con|cmo|cpm|ocm|comm|frr)$/.test(tld)){
+          var sug=v.split('@')[0]+'@'+(typos[d]||d.replace(/\.[a-z]+$/,tld==='frr'?'.fr':'.com'));
+          msg='Vouliez-vous écrire '+sug+' ?';
+          e.setCustomValidity(msg);e.setAttribute('aria-invalid','true');
+          out.append(msg+' ');var b=document.createElement('button');b.type='button';b.textContent='Corriger';
+          b.onclick=function(){e.value=sug;check();e.focus();};out.append(b);return false;
+        }
+      }
+      e.setCustomValidity(msg);
+      if(msg){e.setAttribute('aria-invalid','true');out.textContent=msg;return false;}
+      e.removeAttribute('aria-invalid');return true;
+    }
+    e.addEventListener('blur',function(){if(e.value)check();});
+    e.addEventListener('input',function(){if(e.getAttribute('aria-invalid'))check();});
+    f.addEventListener('submit',function(ev){if(!check()){ev.preventDefault();e.focus();}});
+  })();
+  </script>
 </body>
 </html>
